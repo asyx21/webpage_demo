@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="../static/style.css">
+  <script>
+    function validateForm()
+    {
+      // get element by name
+      var name = document.forms.form_create_account.f_name.value
+      var email = document.forms.form_create_account.f_email.value
+      var pass = document.forms.form_create_account.f_passwd.value
+
+      if ( (name == "") || (email == "") || (pass == "") )
+      {
+        alert("Please complete all fields")
+        return false
+      }
+
+      return true
+    }
+  </script>
+</head>
+<body>
+<div class="container">
+  <form name="form_create_account" action="{{ url_for('create_account') }}" onsubmit="return validateForm()" method="post">
+    <div class="row">
+      <div class="col-label">
+        <label for="name">Name: </label>
+      </div>
+      <div class="col-entry">
+        <input id="name" type="text" name="f_name" minlength="3" maxlength="16" placeholder="name">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-label">
+        <label for="email">Email: </label>
+      </div>
+      <div class="col-entry">
+        <input id="email" type="email" name="f_email" size="32" minlength="5" maxlength="64" placeholder="adress@example.com">
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-label">
+        <label for="userPassword">Password: </label>
+      </div>
+      <div class="col-entry">
+        <input id="userPassword" type="password" name="f_passwd" minlength="5" maxlength="32" placeholder="password">
+      </div>
+    </div>
+
+    <div class="row">
+    	<div class="col-label">
+    	</div>
+    	<div class="col-entry">
+      		<input id="newAccountBtn" type="submit" value="Create new account">
+      	</div>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

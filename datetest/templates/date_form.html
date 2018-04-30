@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="../static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+  <div class="col-label">
+  </div>
+  <div class="col-entry">
+      {{ msg }}
+  </div>
+  <form name="form_date" action="{{ url_for('date_form') }}" method="post">
+    <div class="row">
+      <div class="col-label">
+        <label for="start">Initial date:</label>
+      </div>
+      <div class="col-entry">
+        <input type="date" id="date1" name="f_date1" min="2000-01-01" max="2030-12-31" value="{{ today }}" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-label">
+        <label for="end">Second date:</label>
+      </div>
+      <div class="col-entry">
+        <input type="date" id="date2" name="f_date2" min="2000-01-01" max="2030-12-31" required>
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Choose">
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
